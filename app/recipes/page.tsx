@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/bases/Button";
+import { Button } from "@/components/bases";
 import { useState } from "react";
 
 const RecipePage = () => {
@@ -8,15 +8,15 @@ const RecipePage = () => {
 
   return (
     <div>
-      <Button onClick={() => setCount(count + 1)}>Increment</Button>
-      <Button
-        onClick={() => {
-          console.log("SUBMIT");
-        }}
-      >
-        Submit
+      <Button variant="contained" onClick={() => setCount(count + 1)}>
+        Contained
       </Button>
-      <p>Count: {count}</p>
+      <Button variant="outlined" onClick={() => console.log("OUTLINED BUTTON")}>
+        Outlined
+      </Button>
+      <Button variant="text" onClick={() => console.log("TEXT BUTTON")}>
+        Text
+      </Button>
     </div>
   );
 };
