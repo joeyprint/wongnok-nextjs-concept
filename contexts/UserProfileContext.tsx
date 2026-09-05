@@ -8,14 +8,16 @@ import {
   useState,
 } from "react";
 
+type UserProfile = {
+  name: string;
+  surname: string;
+  tel: string;
+  email: string;
+};
+
 export type UserProfileContextType = {
-  setUserProfile: Dispatch<SetStateAction<UserProfileContextType>>;
-  userProfile: {
-    name: string;
-    surname: string;
-    tel: string;
-    email: string;
-  };
+  setUserProfile: Dispatch<SetStateAction<UserProfile>>;
+  userProfile: UserProfile;
 };
 
 export const UserProfileContext = createContext<UserProfileContextType>(
@@ -27,7 +29,7 @@ type UserProfileProviderProps = {
 };
 
 const UserProfileProvider = (props: UserProfileProviderProps) => {
-  const [userProfile, setUserProfile] = useState<UserProfileContextType>({
+  const [userProfile, setUserProfile] = useState<UserProfile>({
     name: "Wasin",
     surname: "Wachirapusitanun",
     tel: "0987654321",
